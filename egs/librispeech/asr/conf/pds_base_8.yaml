@@ -1,0 +1,40 @@
+arch: pdss2t_transformer_s_8
+
+encoder-embed-dim: 256
+pds-stages: 4
+pds-layers: 3_3_3_3
+pds-ratios: 2_2_1_2
+pds-fusion: False
+pds-fusion-method: all_conv2
+pds-fusion-layers: 0_1_1_1 
+pds-fusion-weight: 0.2_0.3_0.5
+pds-embed-dims: 256_256_256_256
+pds-ds-method: conv
+pds-embed-norm: True
+pds-position-embed: 1_1_1_1
+pds-kernel-sizes: 5_5_5_5
+pds-ffn-ratios: 8_8_8_8
+pds-attn-heads: 4_4_4_4
+
+share-decoder-input-output-embed: True
+optimizer: adam
+clip-norm: 10.0
+lr-scheduler: inverse_sqrt
+warmup-init-lr: 1e-7
+warmup-updates: 10000
+lr: 2e-3
+adam_betas: (0.9,0.98)
+
+criterion: label_smoothed_cross_entropy_with_ctc
+label_smoothing: 0.1
+
+dropout: 0.1
+activation-fn: relu
+encoder-ffn-embed-dim: 2048
+encoder-layers: 12
+decoder-layers: 6
+encoder-attention-heads: 4
+
+decoder-embed-dim: 256
+decoder-ffn-embed-dim: 2048
+decoder-attention-heads: 4

@@ -1,0 +1,4 @@
+encoder-attention-type: local
+hard-mask-window: 0
+gauss-mask-sigma: 3
+init-mask-weight: 0

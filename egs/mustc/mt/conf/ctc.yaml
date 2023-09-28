@@ -1,0 +1,8 @@
+arch: transformer_ctc
+criterion: label_smoothed_cross_entropy_with_ctc
+
+# ctc-layer: 6
+ctc-weight: 0.3
+ctc-upsampling-ratio: 3
+ctc-out-downsampling: False
+ctc-out-downsampling-method: maxpooling

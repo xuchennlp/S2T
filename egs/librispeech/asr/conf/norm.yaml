@@ -1,0 +1,2 @@
+encoder-embed-norm: True
+encoder-no-scale-embedding: True

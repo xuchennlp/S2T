@@ -1,0 +1,34 @@
+inter-xctc-weight: 0.2
+inter-xctc-layers: 6,9
+
+xctc-pae: none
+# xctc-pae: inter_league
+
+xctc-cross-attn: False
+cross-attn-start-layer: 7
+cross-attn-layer: 6
+cross-attn-collaboration-mode: parallel
+cross-attn-league-s1-ratio: 0.5
+cross-attn-league-s2-ratio: 0.5
+cross-attn-league-out-norm: False
+cross-attn-league-gated: False
+cross-attn-league-drop-net: False
+cross-attn-league-drop-net-prob: 0.2
+cross-attn-league-drop-net-mix: False
+
+# xctc-pae-ground-truth-ratio: 0.1
+# xctc-pae-ground-truth-ratio-adaptive: True 
+# xctc-pae-ground-truth-only-mistake: True 
+# pae-oracle-smooth: True
+# pae-gumbel: True
+# pae-distribution-hard: True
+# pae-drop-prob: 0.0
+# pae-distribution-cutoff: 10
+# share-pae-and-xctc: True
+# pae-embed-norm: True
+# pae-out-norm: True
+
+# ctc-self-distill-weight: 1
+# target-ctc-self-distill-weight: 1
+# ctc-self-distill-prob: 0.1
+# cal-all-ctc: True

@@ -1,0 +1,87 @@
+arch: s2t_multibranch
+
+junior-acoustic-encoder: transformer
+acoustic-adapter: none
+textual-adapter: none
+junior-acoustic-encoder-layers: 12
+senior-acoustic-encoder-layers: 6
+textual-encoder-layers: 6
+
+# collaboration-direction: none
+# collaboration-direction: acoustic
+# collaboration-direction: textual
+collaboration-direction: both
+collaboration-start: 0:0
+collaboration-step: 1:1
+# encoder-collaboration-mode: serial
+# decoder-collaboration-mode: serial
+encoder-collaboration-mode: parallel
+decoder-collaboration-mode: parallel
+
+use-raw-text: False
+modality-switch: False
+text-to-hidden-progress: 1:0:500
+
+encoder-league-s1-ratio: 0.5
+encoder-league-s2-ratio: 0.5
+encoder-league-out-norm: False
+encoder-league-gated: False
+encoder-league-drop-net: False
+encoder-league-drop-net-prob: 0.2
+encoder-league-drop-net-mix: False
+
+decoder-league-s1-ratio: 0.5
+decoder-league-s2-ratio: 0.5
+decoder-league-out-norm: False
+decoder-league-gated: False
+decoder-league-drop-net: False
+decoder-league-drop-net-prob: 0.0
+decoder-league-drop-net-mix: False
+
+share-decoder-input-output-embed: True
+optimizer: adam
+clip-norm: 10.0
+lr-scheduler: inverse_sqrt
+warmup-init-lr: 1e-7
+warmup-updates: 10000
+lr: 2e-3
+adam_betas: (0.9,0.98)
+
+criterion: label_smoothed_cross_entropy_with_ctc
+label_smoothing: 0.1
+
+subsampling-type: conv1d
+subsampling-layers: 2
+subsampling-filter: 1024
+subsampling-kernel: 5
+subsampling-stride: 2
+subsampling-norm: none
+subsampling-activation: glu
+
+encoder-embed-norm: True
+encoder-no-scale-embedding: True
+
+dropout: 0.1
+activation-fn: relu
+encoder-embed-dim: 256
+encoder-ffn-embed-dim: 2048
+encoder-attention-heads: 4
+
+decoder-layers: 6
+decoder-embed-dim: 256
+decoder-ffn-embed-dim: 2048
+decoder-attention-heads: 4
+attention-dropout: 0.1
+activation-dropout: 0.1
+
+#adapter: inter_league
+#adapter: none
+#adapter-embed-norm: True
+#adapter-out-norm: True
+#share-adapter-and-ctc: True
+#share-adapter-and-embed: True
+
+#load-pretrained-junior-acoustic-encoder-from:
+#load-pretrained-senior-acoustic-encoder-from:
+#load-pretrained-textual-encoder-from:
+#load-pretrained-decoder-from:

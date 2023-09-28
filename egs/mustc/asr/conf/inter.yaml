@@ -1,0 +1,20 @@
+inter-ctc-weight: 0.2
+inter-ctc-layers: 6,9
+share-inter-ctc: True
+
+ctc-pae: none
+# ctc-pae: inter_league
+
+# ctc-pae-ground-truth-ratio: 0.1
+# pae-gumbel: True
+# pae-distribution-hard: True
+# pae-drop-prob: 0.0
+# pae-distribution-cutoff: 10
+# share-pae-and-ctc: True
+# pae-embed-norm: True
+# pae-out-norm: True
+
+# ctc-self-distill-weight: 1
+# target-ctc-self-distill-weight: 1
+# ctc-self-distill-prob: 0.1
+# cal-all-ctc: True

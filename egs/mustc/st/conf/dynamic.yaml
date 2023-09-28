@@ -1,0 +1,6 @@
+compression-metric: threshold
+compression-mode: create
+compression-layers: 6,9
+compression-threshold: 0.99
+compression-norm: True
+compression-pos: True

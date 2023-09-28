@@ -1,0 +1,40 @@
+# Append-based Interpolation Augmentation
+inter-mixup: True
+
+inter-mixup-layer: -1
+inter-mixup-decoder-layer: 0
+inter-mixup-prob: 1.0
+inter-mixup-ratio: 1.0
+inter-mixup-beta: 0.2
+
+inter-mixup-keep-org: True
+inter-mixup-decoder-emb: True
+
+cal-mixup-loss: False
+no-specaugment: False
+layer-out-norm: False
+
+inter-mixup-ratio-decay: False
+inter-mixup-ratio-decay-params: 20000,40000,0
+
+# MTL
+ctc-weight: 0.3
+share-ctc-and-embed: True
+inter-ctc-weight: 0.2
+inter-ctc-layers: 6,9
+share-inter-ctc: True
+
+ctc-pae: inter_league
+pae-unnorm-input: True
+
+ctc-mixup-consistent-weight: 0.15
+inter-ctc-mixup-consistent-weight: 0.1
+mixup-consistent-weight: 0.5
+
+# Conformer
+macaron-style: True
+use-cnn-module: True
+cnn-module-kernel: 15
+encoder-attention-type: rel_pos
+encoder-activation-fn: swish
+layer-padding-mask: True

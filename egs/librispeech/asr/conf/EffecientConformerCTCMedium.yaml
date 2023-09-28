@@ -1,0 +1,53 @@
+arch: s2t_ctc
+encoder-type: pds
+
+#encoder-attention-type: reduced
+#pds-attn-ds-ratios: 4_2_1_1
+#attention-reduced-method: pool
+#attention-reduced-q: True
+
+pds-stages: 3
+pds-layers: 4_6_6
+pds-ratios: -1_0_0
+pds-conv-strides: 2_2_1
+pds-fusion: False
+pds-fusion-method: all_conv
+pds-embed-dims: 180_256_360
+pds-ds-method: conv
+pds-embed-norm: True
+pds-position-embed: 1_1_1
+pds-kernel-sizes: 3_3_3
+pds-ffn-ratios: 4_4_4
+pds-attn-heads: 4_4_4
+
+subsampling-type: conv2d
+subsampling-layers: 1
+subsampling-filter: 180
+subsampling-kernel: 3
+subsampling-stride: 2
+subsampling-norm: batch2d
+subsampling-activation: swish
+
+optimizer: adam
+#clip-norm: 10.0
+lr-scheduler: inverse_sqrt
+warmup-init-lr: 1e-7
+warmup-updates: 10000
+weight-decay: 1e-6
+lr: 0.0015
+adam_betas: (0.9,0.98)
+
+criterion: ctc
+post-process: sentencepiece
+
+dropout: 0.1
+activation-fn: relu
+encoder-embed-dim: 360
+encoder-layers: 15
+encoder-attention-heads: 4
+
+macaron-style: True
+use-cnn-module: True
+cnn-module-kernel: 15
+encoder-activation-fn: swish
+encoder-attention-type: rel_pos

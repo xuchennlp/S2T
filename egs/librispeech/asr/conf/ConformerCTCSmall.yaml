@@ -1,0 +1,35 @@
+arch: s2t_ctc
+encoder-type: transformer
+
+optimizer: adam
+#clip-norm: 10.0
+lr-scheduler: inverse_sqrt
+warmup-init-lr: 1e-7
+warmup-updates: 10000
+weight-decay: 1e-6
+lr: 0.0015
+adam_betas: (0.9,0.98)
+
+criterion: ctc
+post-process: sentencepiece
+
+subsampling-type: conv2d
+subsampling-layers: 2
+subsampling-filter: 176
+subsampling-kernel: 3
+subsampling-stride: 2
+subsampling-norm: batch2d
+subsampling-activation: swish
+
+dropout: 0.1
+activation-fn: relu
+encoder-embed-dim: 176
+encoder-ffn-embed-dim: 704
+encoder-layers: 16
+encoder-attention-heads: 4
+
+macaron-style: True
+use-cnn-module: True
+cnn-module-kernel: 31
+encoder-activation-fn: swish
+encoder-attention-type: rel_pos

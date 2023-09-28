@@ -1,0 +1,29 @@
+train-subset: train
+valid-subset: dev
+
+max-epoch: 100
+max-update: 100000
+patience: 20
+post-process: sentencepiece
+
+# best-checkpoint-metric: loss
+# maximize-best-checkpoint-metric: False
+
+eval-wer: True
+eval-wer-args: {"beam": 5, "lenpen": 1.0}
+eval-wer-tok-args: {"wer_remove_punct": true, "wer_lowercase": true, "wer_char_level": false}
+eval-wer-remove-bpe: sentencepiece
+eval-wer-print-samples: True
+best_checkpoint_metric: dec_wer
+maximize_best_checkpoint_metric: False
+
+no-epoch-checkpoints: True
+# keep-last-epochs: 10
+keep-best-checkpoints: 10
+
+num-workers: 8
+no-progress-bar: True
+log-interval: 100
+seed: 1
+report-accuracy: True
+skip-invalid-size-inputs-valid-test: True

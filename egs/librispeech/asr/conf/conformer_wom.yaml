@@ -1,0 +1,4 @@
+use-cnn-module: True
+cnn-module-kernel: 31
+encoder-attention-type: rel_pos
+encoder-activation-fn: swish

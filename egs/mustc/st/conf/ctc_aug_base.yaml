@@ -1,0 +1,50 @@
+arch: s2t_sate
+share-decoder-input-output-embed: True
+optimizer: adam
+clip-norm: 10.0
+lr-scheduler: inverse_sqrt
+warmup-init-lr: 1e-7
+warmup-updates: 10000
+lr: 2e-3
+adam_betas: (0.9,0.98)
+
+criterion: label_smoothed_cross_entropy_with_ctc
+label_smoothing: 0.1
+
+encoder-normalize-before: True
+decoder-normalize-before: True
+
+encoder-embed-norm: True
+encoder-no-scale-embedding: True
+text-no-pos-emb: True
+textual-encoder-embed-norm: False
+textual-encoder-no-scale-embedding: True
+
+subsampling-type: conv1d
+subsampling-layers: 2
+subsampling-filter: 1024
+subsampling-kernel: 5
+subsampling-stride: 2
+subsampling-norm: none
+subsampling-activation: glu
+
+dropout: 0.1
+activation-fn: relu
+encoder-embed-dim: 256
+encoder-ffn-embed-dim: 2048
+encoder-layers: 12
+text-encoder-layers: 6
+decoder-layers: 6
+encoder-attention-heads: 4
+
+decoder-embed-dim: 256
+decoder-ffn-embed-dim: 2048
+decoder-attention-heads: 4
+
+acoustic-encoder: transformer
+adapter: none
+
+# load-pretrained-encoder-from: 
+# load-pretrained-acoustic-encoder-from:
+# load-pretrained-text-encoder-from:
+# load-pretrained-decoder-from:
